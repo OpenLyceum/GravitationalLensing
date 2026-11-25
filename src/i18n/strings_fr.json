@@ -1,21 +1,75 @@
 {
-  "title": "Modèle de Simulation",
+  "title": "Gravitational Lensing",
   "screens": {
-    "sim": "Simulation"
+    "galaxy": "Galaxy Lensing",
+    "microlensing": "Microlensing"
   },
   "a11y": {
-    "screenSummary": {
-      "playArea": "La zone de jeu affiche le contenu principal de la simulation.",
-      "controlArea": "La zone de contrôle comporte un bouton Tout réinitialiser qui ramène la simulation à son état initial.",
-      "interactionHint": "Explorez la simulation en interagissant avec ses commandes."
+    "galaxy": {
+      "screenSummary": {
+        "playArea": "La vue au télescope montre la galaxie au premier plan et les images déformées d’une galaxie d’arrière-plan fixe.",
+        "controlArea": "Modifiez l’alignement, réglez le rayon d’Einstein ou affichez les repères.",
+        "interactionHint": "Choisissez le préréglage Anneau, puis décalez la galaxie au premier plan pour voir comment l’image change."
+      },
+      "lens": "Position de la galaxie au premier plan",
+      "lensHelp": "Utilisez les flèches pour déplacer la galaxie. Maintenez Maj pour des pas plus petits.",
+      "keyboardTitle": "Déplacer la galaxie",
+      "details": "{{pattern}}. Galaxie au premier plan par rapport à la galaxie d’arrière-plan : x {{x}}, y {{y}} secondes d’arc. Séparation {{offset}} secondes d’arc. Rayon d’Einstein {{radius}} secondes d’arc."
     },
-    "currentDetails": "La simulation est dans son état initial.",
-    "controls": {
-      "exampleControl": "Contrôle d'exemple"
+    "microlensing": {
+      "screenSummary": {
+        "playArea": "La courbe donne la luminosité combinée des images non résolues. Un diagramme montre les positions relatives des étoiles.",
+        "controlArea": "Lancez l’événement ou parcourez-le. Modifiez la séparation minimale ou le temps pour parcourir un rayon d’Einstein.",
+        "interactionHint": "Diminuez la séparation minimale et comparez les luminosités maximales."
+      },
+      "details": "Jour {{day}} par rapport au passage au plus près. Luminosité actuelle : {{current}} fois la luminosité sans lentille. Luminosité maximale : {{peak}} fois la luminosité sans lentille. Séparation minimale : {{impact}} rayons d’Einstein. Temps de traversée d’Einstein : {{duration}} jours.",
+      "impact": "Séparation minimale en rayons d’Einstein",
+      "timeScale": "Temps de traversée d’Einstein en jours",
+      "time": "Temps de l’événement en jours"
     }
   },
   "preferences": {
-    "title": "Simulation",
-    "exampleToggle": "Exemple de bascule"
+    "title": "Simulation"
+  },
+  "galaxy": {
+    "subtitle": "Déplacez la galaxie au premier plan et observez la déformation d’une galaxie d’arrière-plan.",
+    "sky": "Vue au télescope",
+    "legendLens": "Galaxie au premier plan",
+    "legendImage": "Lumière d’arrière-plan déviée",
+    "legendSource": "Source non déviée",
+    "guideLabel": "Afficher les repères d’alignement",
+    "alignment": "Alignement des galaxies",
+    "strength": "Rayon d’Einstein",
+    "offset": "Séparation angulaire",
+    "angularValue": "{{value}}″",
+    "single": "Une image",
+    "double": "Deux images",
+    "arcs": "Arcs",
+    "ring": "Anneau",
+    "ringState": "Anneau d’Einstein",
+    "oneState": "Une image du centre de la source",
+    "twoState": "Deux images du centre de la source",
+    "hint": "Alignez les centres des deux galaxies pour former un anneau. Un léger décalage étire la lumière en arcs.",
+    "dragHint": "Déplacez la galaxie ambrée."
+  },
+  "microlensing": {
+    "subtitle": "Suivez une étoile d’arrière-plan qui passe derrière une étoile au premier plan agissant comme une lentille.",
+    "curve": "Courbe de lumière de microlentille",
+    "magnification": "Luminosité relative",
+    "timeAxis": "Jours depuis le passage au plus près",
+    "baseline": "Luminosité sans lentille",
+    "peak": "Passage au plus près",
+    "trajectory": "Mouvement relatif sur le ciel",
+    "source": "Étoile d’arrière-plan",
+    "lens": "Étoile-lentille",
+    "impact": "Séparation minimale",
+    "timeScale": "Temps de traversée d’Einstein",
+    "time": "Temps de l’événement",
+    "days": "{{value}} j",
+    "theta": "{{value}} θE",
+    "flux": "{{value}}×",
+    "current": "Luminosité actuelle",
+    "peakFlux": "Luminosité maximale",
+    "hint": "Les deux images de l’étoile se confondent en un point. Leur lumière combinée rend l’étoile plus brillante."
   }
 }

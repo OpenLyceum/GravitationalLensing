@@ -1,21 +1,75 @@
 {
-  "title": "Plantilla de Simulación",
+  "title": "Gravitational Lensing",
   "screens": {
-    "sim": "Simulación"
+    "galaxy": "Galaxy Lensing",
+    "microlensing": "Microlensing"
   },
   "a11y": {
-    "screenSummary": {
-      "playArea": "El área de juego muestra el contenido principal de la simulación.",
-      "controlArea": "El área de control tiene un botón Restablecer todo que devuelve la simulación a su estado inicial.",
-      "interactionHint": "Explora la simulación interactuando con sus controles."
+    "galaxy": {
+      "screenSummary": {
+        "playArea": "La vista por el telescopio muestra la galaxia del primer plano y las imágenes distorsionadas de una galaxia de fondo fija.",
+        "controlArea": "Cambia la alineación, ajusta el radio de Einstein o muestra las guías.",
+        "interactionHint": "Prueba el ajuste Anillo y desplaza la galaxia del primer plano para ver cómo cambia la imagen."
+      },
+      "lens": "Posición de la galaxia del primer plano",
+      "lensHelp": "Usa las flechas para mover la galaxia. Mantén Mayús para dar pasos más pequeños.",
+      "keyboardTitle": "Mover la galaxia",
+      "details": "{{pattern}}. Galaxia del primer plano respecto a la galaxia de fondo: x {{x}}, y {{y}} segundos de arco. Separación {{offset}} segundos de arco. Radio de Einstein {{radius}} segundos de arco."
     },
-    "currentDetails": "La simulación está en su estado inicial.",
-    "controls": {
-      "exampleControl": "Control de ejemplo"
+    "microlensing": {
+      "screenSummary": {
+        "playArea": "La curva muestra el brillo combinado de las imágenes sin resolver. Un diagrama muestra las posiciones relativas de las estrellas.",
+        "controlArea": "Reproduce el evento o recórrelo. Cambia la separación mínima o el tiempo para recorrer un radio de Einstein.",
+        "interactionHint": "Reduce la separación mínima y compara los brillos máximos."
+      },
+      "details": "Día {{day}} respecto al máximo acercamiento. Brillo actual: {{current}} veces el brillo sin lente. Brillo máximo: {{peak}} veces el brillo sin lente. Separación mínima: {{impact}} radios de Einstein. Tiempo de cruce de Einstein: {{duration}} días.",
+      "impact": "Separación mínima en radios de Einstein",
+      "timeScale": "Tiempo de cruce de Einstein en días",
+      "time": "Tiempo del evento en días"
     }
   },
   "preferences": {
-    "title": "Simulación",
-    "exampleToggle": "Ejemplo de alternancia"
+    "title": "Simulación"
+  },
+  "galaxy": {
+    "subtitle": "Mueve la galaxia del primer plano y observa cómo cambia la forma de una galaxia de fondo.",
+    "sky": "Vista por el telescopio",
+    "legendLens": "Galaxia del primer plano",
+    "legendImage": "Luz de fondo desviada",
+    "legendSource": "Fuente sin lente",
+    "guideLabel": "Mostrar guías de alineación",
+    "alignment": "Alineación de las galaxias",
+    "strength": "Radio de Einstein",
+    "offset": "Separación angular",
+    "angularValue": "{{value}}″",
+    "single": "Una imagen",
+    "double": "Dos imágenes",
+    "arcs": "Arcos",
+    "ring": "Anillo",
+    "ringState": "Anillo de Einstein",
+    "oneState": "Una imagen del centro de la fuente",
+    "twoState": "Dos imágenes del centro de la fuente",
+    "hint": "Alinea el centro de ambas galaxias para formar un anillo. Un pequeño desplazamiento estira la luz en arcos.",
+    "dragHint": "Arrastra la galaxia ámbar."
+  },
+  "microlensing": {
+    "subtitle": "Sigue una estrella de fondo que pasa detrás de una estrella del primer plano que actúa como lente.",
+    "curve": "Curva de luz de microlente",
+    "magnification": "Brillo relativo",
+    "timeAxis": "Días desde el máximo acercamiento",
+    "baseline": "Brillo sin lente",
+    "peak": "Máximo acercamiento",
+    "trajectory": "Movimiento relativo en el cielo",
+    "source": "Estrella de fondo",
+    "lens": "Estrella lente",
+    "impact": "Separación mínima",
+    "timeScale": "Tiempo de cruce de Einstein",
+    "time": "Tiempo del evento",
+    "days": "{{value}} d",
+    "theta": "{{value}} θE",
+    "flux": "{{value}}×",
+    "current": "Brillo actual",
+    "peakFlux": "Brillo máximo",
+    "hint": "Las dos imágenes estelares se ven como un solo punto. Su luz combinada hace que la estrella parezca más brillante."
   }
 }

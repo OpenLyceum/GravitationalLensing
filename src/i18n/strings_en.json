@@ -1,21 +1,75 @@
 {
-  "title": "SceneryStack Template",
+  "title": "Gravitational Lensing",
   "screens": {
-    "sim": "Sim"
+    "galaxy": "Galaxy Lensing",
+    "microlensing": "Microlensing"
   },
   "a11y": {
-    "screenSummary": {
-      "playArea": "The play area shows the main simulation content.",
-      "controlArea": "The control area has a Reset All button that returns the simulation to its starting state.",
-      "interactionHint": "Explore the simulation by interacting with its controls."
+    "galaxy": {
+      "screenSummary": {
+        "playArea": "The telescope view shows the foreground galaxy and the distorted images of a fixed background galaxy.",
+        "controlArea": "Change the alignment, adjust the Einstein radius, or show the alignment guides.",
+        "interactionHint": "Try the Ring preset, then nudge the foreground galaxy to see how the image changes."
+      },
+      "lens": "Foreground galaxy position",
+      "lensHelp": "Use the arrow keys to move the galaxy. Hold Shift for smaller steps.",
+      "keyboardTitle": "Move the galaxy",
+      "details": "{{pattern}}. Foreground galaxy relative to the background galaxy: x {{x}}, y {{y}} arcseconds. Separation {{offset}} arcseconds. Einstein radius {{radius}} arcseconds."
     },
-    "currentDetails": "The simulation is in its initial state.",
-    "controls": {
-      "exampleControl": "Example control"
+    "microlensing": {
+      "screenSummary": {
+        "playArea": "The light curve plots the combined brightness of the unresolved star images. A sky diagram shows the relative positions of the stars.",
+        "controlArea": "Play or scrub the event. Change the closest separation or the time to move one Einstein radius.",
+        "interactionHint": "Decrease the minimum separation and compare peak brightness."
+      },
+      "details": "Day {{day}} relative to closest approach. Current brightness {{current}} times unlensed brightness. Peak brightness {{peak}} times unlensed brightness. Minimum separation {{impact}} Einstein radii. Einstein crossing time {{duration}} days.",
+      "impact": "Minimum separation in Einstein radii",
+      "timeScale": "Einstein crossing time in days",
+      "time": "Event time in days"
     }
   },
   "preferences": {
-    "title": "Simulation",
-    "exampleToggle": "Example Toggle"
+    "title": "Simulation"
+  },
+  "galaxy": {
+    "subtitle": "Move the foreground galaxy and watch one background galaxy change shape.",
+    "sky": "View through the telescope",
+    "legendLens": "Foreground galaxy",
+    "legendImage": "Lensed background light",
+    "legendSource": "Unlensed source",
+    "guideLabel": "Show alignment guides",
+    "alignment": "Galaxy alignment",
+    "strength": "Einstein radius",
+    "offset": "Angular separation",
+    "angularValue": "{{value}}″",
+    "single": "One image",
+    "double": "Two images",
+    "arcs": "Arcs",
+    "ring": "Ring",
+    "ringState": "Einstein ring",
+    "oneState": "One image of the source center",
+    "twoState": "Two images of the source center",
+    "hint": "Align the two galaxy centers to form a ring. A small offset stretches the light into arcs.",
+    "dragHint": "Drag the amber galaxy."
+  },
+  "microlensing": {
+    "subtitle": "Follow a background star as it passes behind a foreground star that acts as a lens.",
+    "curve": "Microlensing light curve",
+    "magnification": "Relative brightness",
+    "timeAxis": "Days from closest approach",
+    "baseline": "Unlensed brightness",
+    "peak": "Closest approach",
+    "trajectory": "Relative motion on the sky",
+    "source": "Background star",
+    "lens": "Lens star",
+    "impact": "Minimum separation",
+    "timeScale": "Einstein crossing time",
+    "time": "Event time",
+    "days": "{{value}} d",
+    "theta": "{{value}} θE",
+    "flux": "{{value}}×",
+    "current": "Current brightness",
+    "peakFlux": "Peak brightness",
+    "hint": "The two stellar images appear as one point. Their combined light makes the star appear brighter."
   }
 }

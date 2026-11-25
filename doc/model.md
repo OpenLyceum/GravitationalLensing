@@ -1,50 +1,32 @@
-# Model - SceneryStack Template
+# Model
 
-This document describes the model (the underlying physics, math, and behavior) for the simulation, in
-terms appropriate for an educator. It is the companion to
-[implementation-notes.md](./implementation-notes.md), which targets developers.
+## Galaxy lensing
 
-> **Replace this entire file when forking.** The template ships with no domain physics — only the
-> section structure below. Real OpenLyceum sims (e.g. Stern Gerlach, Light Propagation) fill each
-> section with equations, ranges, and simplifications verified against their model code.
+The foreground galaxy is a spherical singular isothermal lens. Given image position
+`θ` relative to the lens center, back-trace at source position `β = θ − θE θ / |θ|`,
+where `θE` is the angular Einstein radius. The source-plane brightness sampled at
+`β` becomes the image-plane surface brightness. Separations and radii are in arcseconds.
 
-## Overview
+An exactly aligned source center maps to a circle of radius `θE`. At separation
+`0 < β < θE` the source center has two images, with the inner one on the opposite
+side of the lens. At `β ≥ θE` one regular image remains. The controls describe the
+multiplicity of the center because different parts of the finite source can cross
+this boundary independently. The finite source width produces arcs with visible thickness.
+The amber lens light is a visual reference. It has no effect on the back-tracing.
 
-*One or two paragraphs describing what the simulation models and the key ideas a student should take
-away. Write for a teacher, not a programmer — avoid code and class names.*
+The group of guides marks the unlensed source and the tangential critical curve.
+This spherical model has axial symmetry and omits tidal shear from nearby mass.
 
-**Example (do not ship):** "The simulation models a block sliding on a ramp with adjustable friction
-and angle. Students see how the component of gravity parallel to the surface sets acceleration and
-how static vs kinetic friction limits motion."
+[Reference derivation (Appendix B)](https://academic.oup.com/mnras/article/445/2/1942/1411070)
 
-The template's `SimModel` is an empty coordinator — replace it with real state and a `step(dt)` /
-`reset()` that implement your physics.
+## Stellar microlensing
 
-## Quantities and units
+For a point source moving in a straight line relative to a point lens, the
+separation in Einstein radii is `u(t) = √[u₀² + (t/tE)²]`. Time zero is closest approach,
+`u₀` is the minimum separation, and `tE` is the time required to move one Einstein radius.
+The two unresolved images have a combined brightness of
+`A(t) = (u² + 2)/(u √(u² + 4))` times the unlensed source brightness.
+Smaller `u₀` raises the peak. Larger `tE` broadens the curve at fixed `u₀`.
+The model assumes an isolated lens and omits the lens's own flux from the plotted measurement.
 
-*List the primary modeled quantities, their symbols, units (SI where applicable), and control ranges.
-Mirror the ranges enforced in your `*Constants.ts` or model `Range` options.*
-
-| Quantity | Symbol | Units | Range |
-|---|---|---|---|
-| *(example)* time | t | s | 0 – ∞ |
-| *(example)* mass | m | kg | 0.1 – 5.0 |
-
-## Governing equations
-
-*State the equations or rules that drive the model, with a sentence explaining each. Use a smaller
-fixed time step than the screen default if the integration requires it; the model makes no assumption
-about frame rate.*
-
-**Example (do not ship):** For a damped spring, m·a = −k·x − b·v (+ gravity if applicable).
-
-## Simplifications and assumptions
-
-*Note anything intentionally idealized or omitted relative to the real-world phenomenon (e.g. no air
-resistance, point masses, instantaneous response), so educators can set expectations.*
-
-**Example (do not ship):** "Massless spring; linear damping only; motion confined to one dimension."
-
-## References
-
-*Optional: textbook sections, papers, or standards the model is based on.*
+[Point-lens reference](https://www.physics.ox.ac.uk/system/files/file_attachments/ASTR_635_notes.pdf)

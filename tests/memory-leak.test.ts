@@ -9,11 +9,33 @@
  * tests below using forceGC().
  */
 
-// seed:leak-imports:start
-import { TimeModel } from "../src/common/TimeModel.js";
-// seed:leak-imports:end
+import { Vector2 } from "scenerystack/dot";
+import { ModelViewTransform2 } from "scenerystack/phetcommon";
+import { GalaxyLensingModel } from "../src/galaxy/model/GalaxyLensingModel.js";
+import { GalaxyFieldNode } from "../src/galaxy/view/GalaxyFieldNode.js";
+import { GalaxyImageNode } from "../src/galaxy/view/GalaxyImageNode.js";
+import { MicrolensingModel } from "../src/microlensing/model/MicrolensingModel.js";
+import { LightCurveNode } from "../src/microlensing/view/LightCurveNode.js";
+import { StarTrajectoryNode } from "../src/microlensing/view/StarTrajectoryNode.js";
 import { describeDisposalLeaks } from "./helpers/memoryLeak.js";
 
-// seed:leak-cases:start
-describeDisposalLeaks([{ name: "TimeModel", create: () => new TimeModel(), idempotentDispose: true }]);
-// seed:leak-cases:end
+const galaxyModel = new GalaxyLensingModel();
+const stellarModel = new MicrolensingModel();
+
+describeDisposalLeaks([
+  { name: "GalaxyFieldNode", create: () => new GalaxyFieldNode(galaxyModel) },
+  {
+    name: "GalaxyImageNode",
+    create: () =>
+      new GalaxyImageNode(
+        galaxyModel,
+        ModelViewTransform2.createSinglePointScaleInvertedYMapping(Vector2.ZERO, Vector2.ZERO, 1),
+        32,
+        24,
+      ),
+  },
+  { name: "LightCurveNode", create: () => new LightCurveNode(stellarModel) },
+  { name: "StarTrajectoryNode", create: () => new StarTrajectoryNode(stellarModel) },
+  { name: "GalaxyLensingModel", create: () => new GalaxyLensingModel() },
+  { name: "MicrolensingModel", create: () => new MicrolensingModel() },
+]);

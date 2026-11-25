@@ -12,15 +12,15 @@
 
 import { StringProperty } from "scenerystack/axon";
 import { Tandem } from "scenerystack/tandem";
-// seed:soak-imports:start
-import SimColors from "../../src/SimColors.js";
-import { SimScreen } from "../../src/sim-screen/SimScreen.js";
-// seed:soak-imports:end
+import GravitationalLensingColors from "../../src/GravitationalLensingColors.js";
+import { GalaxyLensingScreen } from "../../src/galaxy/GalaxyLensingScreen.js";
+import { MicrolensingScreen } from "../../src/microlensing/MicrolensingScreen.js";
 import { describeHeadlessSoak } from "../helpers/headlessSoak.js";
 
 describeHeadlessSoak({
-  // seed:soak-screens:start
-  screens: () => [new SimScreen({ name: new StringProperty("Sim"), tandem: Tandem.OPT_OUT })],
-  tracked: () => ({ SimColors }),
-  // seed:soak-screens:end
+  screens: () => [
+    new GalaxyLensingScreen({ name: new StringProperty("Galaxy Lensing"), tandem: Tandem.OPT_OUT }),
+    new MicrolensingScreen({ name: new StringProperty("Microlensing"), tandem: Tandem.OPT_OUT }),
+  ],
+  tracked: () => ({ GravitationalLensingColors }),
 });

@@ -1,69 +1,40 @@
-# SceneryStack Template
+# Gravitational Lensing
 
-[![CI](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
-
-A reusable SceneryStack simulation template for one or N screens, built with
-[SceneryStack](https://scenerystack.org/), Vite 8, TypeScript 7, and Biome 2.
+[Run Gravitational Lensing](https://openlyceum.github.io/GravitationalLensing/)
 
 ## Features
 
-- SceneryStack scaffold with model/view separation (`rename` + `scaffold-screens` for one or N screens)
-- English, Spanish, and French localization via `StringManager`
-- Default and projector color profiles
-- Progressive Web App (installable, offline-capable)
-- Git hooks for Biome pre-commit checks
-- Shared GitHub Actions CI via `OpenLyceum/Baton`
+- **Galaxy Lensing** — Drag the foreground galaxy or use the alignment presets to explore one image,
+  two images, distorted arcs, and a full Einstein ring. Adjust the Einstein radius and show alignment guides.
+- **Microlensing** — Play, step, or scrub a stellar flyby. Change the minimum separation and Einstein crossing
+  time and compare the relative brightness and peak.
+- Keyboard controls, screen-reader summaries, projector mode, and English, French, and Spanish interfaces.
 
 ## Quick Start
 
-```bash
-npm install
-npm run icons    # generate PNG icons from public/icons/icon.svg
-npm start        # dev server → http://localhost:5173
-```
+With Node.js 26 or newer, run `npm ci` and `npm start`. Open the local link printed by Vite.
 
 ## Scripts
 
-| Command | Description |
-|---|---|
-| `npm start` / `npm run dev` | Start Vite dev server |
-| `npm run build` | Type-check + production build → `dist/` |
-| `npm run preview` | Preview the production build locally |
-| `npm test` | Run Vitest unit tests (includes memory-leak suite) |
-| `npm run test:fuzz` | Optional Playwright fuzz smoke: pointer (`?fuzz`) + keyboard (`?fuzzBoard`), with `?ea`, 30s each |
-| `npm run test:fuzz -- 90` | Same fuzz for 90 seconds (`--duration 90` or `FUZZ_DURATION=90` also work) |
-| `npm run test:fuzz:quick` | Shorter fuzz smoke (10s) |
-| `npm run test:fuzz:long` | Longer fuzz smoke (300s) |
-| `npm run test:soak` | By-hand leak soaks: headless (`tests/soak/headless.soak.ts`), then browser (`tests/soak/browser.spec.ts`) |
-| `npm run check` | TypeScript type check |
-| `npm run lint` | Biome check (warnings fail too) |
-| `npm run check:unused` / `npm run knip` | Report unused files, exports, and dependencies (manual check) |
-| `npm run check:architecture` | dependency-cruiser layer and cycle rules on `src/` (manual check) |
-| `npm run format` | Auto-format all files |
-| `npm run fix` | Lint + auto-fix |
-| `npm run icons` | Regenerate PNG icons from `public/icons/icon.svg` |
-| `npm run rename` | Sim-level fork/rename (`--id`, `--name`) |
-| `npm run scaffold-screens` | Emit N fleet-named screen packages from `sim-screen/` (`--shared-model` optional) |
-| `npm run release` | `check && lint && build && test`, then version patch + push tags |
-| `npm run clean` | Remove `dist/` |
-
-New sims start at `version: "0.0.0"` in `package.json`. Bump only when cutting a release (for example `npm version patch` and a matching git tag). Keep `name` in kebab-case; it is separate from the SceneryStack sim identifier in `src/init.ts`, which reads its `version` from `package.json`.
+| Command | Purpose |
+| --- | --- |
+| `npm run check` | Type-check the sim, scripts, and tests |
+| `npm run lint` | Check Biome style and conventions |
+| `npm run check:architecture` | Check module boundaries |
+| `npm run check:unused` | Check for unused code |
+| `npm test` | Run model and lifecycle tests |
+| `npm run build` | Build the installable web simulation |
+| `npm run build:single` | Build an offline HTML file |
+| `npm run test:fuzz:quick` | Run the quick browser fuzz check |
 
 ## Tech Stack
 
-| Tool | Version | Purpose |
-|---|---|---|
-| [SceneryStack](https://scenerystack.org/) | ^3.0.0 | Simulation framework |
-| [Vite](https://vitejs.dev/) | ^8 | Build tool + dev server |
-| [TypeScript](https://www.typescriptlang.org/) | ^7 | Type-safe JavaScript |
-| [Biome](https://biomejs.dev/) | ^2.5 | Linting + formatting |
-| [vite-plugin-pwa](https://vite-pwa-org.netlify.app/) | ^2 | PWA + service worker |
+SceneryStack, TypeScript, Vite, and Vitest. See [the model notes](doc/model.md) for the lens equations and assumptions.
 
 ## License
 
-GNU Affero General Public License v3.0 — see [OpenLyceum org license](https://github.com/OpenLyceum/.github/blob/main/LICENSE).
+AGPL-3.0-or-later. See the [OpenLyceum license](https://github.com/OpenLyceum/.github/blob/main/LICENSE).
 
 ## Contributing
 
-See [OpenLyceum contributing guidelines](https://github.com/OpenLyceum/.github/blob/main/CONTRIBUTING.md).
-Report bugs via GitHub Issues; use org issue templates.
+See the [OpenLyceum contribution guide](https://github.com/OpenLyceum/.github/blob/main/CONTRIBUTING.md).

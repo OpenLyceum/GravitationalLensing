@@ -21,24 +21,29 @@ import "./brand.js";
 
 import { onReadyToLaunch, PreferencesModel, Sim } from "scenerystack/sim";
 import { Tandem } from "scenerystack/tandem";
+import GravitationalLensingColors from "./GravitationalLensingColors.js";
+import { GalaxyLensingScreen } from "./galaxy/GalaxyLensingScreen.js";
 import { StringManager } from "./i18n/StringManager.js";
-import { SimPreferencesModel } from "./preferences/SimPreferencesModel.js";
-import { SimPreferencesNode } from "./preferences/SimPreferencesNode.js";
-import SimColors from "./SimColors.js";
-import { SimScreen } from "./sim-screen/SimScreen.js";
+import { MicrolensingScreen } from "./microlensing/MicrolensingScreen.js";
+import { GravitationalLensingPreferencesModel } from "./preferences/GravitationalLensingPreferencesModel.js";
+import { GravitationalLensingPreferencesNode } from "./preferences/GravitationalLensingPreferencesNode.js";
 
 onReadyToLaunch(() => {
   const stringManager = StringManager.getInstance();
 
-  // Simulation-specific preferences; initial values come from simQueryParameters.
-  const simPreferences = new SimPreferencesModel(Tandem.ROOT.createTandem("preferences"));
+  // Simulation-specific preferences; initial values come from gravitationalLensingQueryParameters.
+  const simPreferences = new GravitationalLensingPreferencesModel(Tandem.ROOT.createTandem("preferences"));
 
   const screens = [
-    new SimScreen({
-      // The screen name Property updates automatically when the locale changes
-      name: stringManager.getScreenNames().simStringProperty,
-      tandem: Tandem.ROOT.createTandem("simScreen"),
-      backgroundColorProperty: SimColors.backgroundColorProperty,
+    new GalaxyLensingScreen({
+      name: stringManager.getScreenNames().galaxyStringProperty,
+      tandem: Tandem.ROOT.createTandem("galaxyScreen"),
+      backgroundColorProperty: GravitationalLensingColors.backgroundColorProperty,
+    }),
+    new MicrolensingScreen({
+      name: stringManager.getScreenNames().microlensingStringProperty,
+      tandem: Tandem.ROOT.createTandem("microlensingScreen"),
+      backgroundColorProperty: GravitationalLensingColors.backgroundColorProperty,
     }),
   ];
 
@@ -53,7 +58,7 @@ onReadyToLaunch(() => {
       simulationOptions: {
         customPreferences: [
           {
-            createContent: (tandem: Tandem) => new SimPreferencesNode(simPreferences, tandem),
+            createContent: (tandem: Tandem) => new GravitationalLensingPreferencesNode(simPreferences, tandem),
           },
         ],
       },
